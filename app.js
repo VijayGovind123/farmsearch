@@ -334,7 +334,12 @@ app.get('/search', (req, res) => {
 
   Farmer.aggregate([
     { $unwind: '$products' },
-    { $match: { 'products.name': { $regex: searchTerm, $options: 'i' } } },
+    { $match: {
+      $or: [
+          { 'products.farmername': { $regex: searchTerm, $options: 'i' } },
+          { 'products.name': { $regex: searchTerm, $options: 'i' } }
+        ]
+    } },
     { $group: { _id: '$_id', products: { $push: '$products' } } }
   ])
     .then(result => {
