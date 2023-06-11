@@ -28,7 +28,8 @@
 
   </div>
  <% }  %>
- <% else { %>
+ 
+ <%if(images[i].products[j].isExists===false){ %>
   <div class="container">
     <h1>Sorry<br>The product you are searching is removed by the Farmer</h1>
   </div>
