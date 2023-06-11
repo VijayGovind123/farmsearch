@@ -56,14 +56,14 @@ mongoose.connect("mongodb://localhost:27017/farmersDB",{useNewUrlParser:true}).t
 }); */
 
 //mongoose.connect("mongodb+srv://subhash:subbu143@cluster0.6eumtl4.mongodb.net/todolistDB",{useNewUrlparser : true});
-
+/*
 mongoose.connect("mongodb+srv://subhash:subbu143@cluster0.6eumtl4.mongodb.net/searchDB",{
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(function(){
   
   console.log("Mongoose connected");
-});
+});*/
 /*
 mongoose.connect("mongodb+srv://andekishore:Kishore-1506@cluster0.szmohag.mongodb.net/farmersDB",{
   useNewUrlParser: true,
@@ -73,15 +73,15 @@ mongoose.connect("mongodb+srv://andekishore:Kishore-1506@cluster0.szmohag.mongod
   console.log("Mongoose connected");
 });*/
 //originaldbbbbb
-/*
-mongoose.connect("mongodb+srv://kishore:1234@cluster0.w7w19gv.mongodb.net/farmersDB",{
+
+mongoose.connect("mongodb+srv://kishore:1234@cluster0.w7w19gv.mongodb.net/farmersnewDB",{
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(function(){
   
   console.log("Mongoose connected");
 });
-*/
+
 //mongoose.connect("mongodb+srv://andekishore:Kishore-1506@cluster0.szmohag.mongodb.net/?retryWrites=true&w=majority/farmersDB", {useNewUrlParser: true});
 //mongoose.set("useCreateIndex", true);
 //mongoose.set('bufferCommands',false);
