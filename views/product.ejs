@@ -1,4 +1,6 @@
 <%- include("header") -%>
+
+<%   if(images[i].products[j].isExists===true) { %>
 <div class="product">
     <div class="image" style="background:url('data:image/<%=images[i].products[j].image.contentType%>;base64,<%=images[i].products[j].image.data.toString('base64')%>');background-position:center;background-size:cover;">
 
@@ -25,6 +27,12 @@
     </div>
 
   </div>
+ <% }  %>
+ <% else { %>
+  <div class="container">
+    <h1>Sorry<br>The product you are searching is removed by the Farmer</h1>
+  </div>
+ <%  } %>
 
 
   <form class="loginForm" action="/products" method="post">
