@@ -27,15 +27,6 @@
     </div>
 
   </div>
- <% }  %>
- 
- <%if(images[i].products[j].isExists===false){ %>
-  <div class="container">
-    <h1>Sorry<br>The product you are searching is removed by the Farmer</h1>
-  </div>
- <%  } %>
-
-
   <form class="loginForm" action="/products" method="post">
       <input type="text" placeholder="Name" name="name">
       <input type="text" placeholder="Email" name="email">
@@ -43,5 +34,15 @@
       <button type="submit">Send Details</button>
 
   </form>
+ <% }  %>
+ 
+ <%if(images[i].products[j].isExists===false){ %>
+  <div class="container">
+    <h1>Sorry</h1><br><h1>The product you are searching is removed by the Farmer</h1>
+  </div>
+ <%  } %>
+
+
+  
 
 <%- include("footer") -%>
