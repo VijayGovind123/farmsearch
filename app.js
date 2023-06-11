@@ -344,7 +344,7 @@ app.get('/search', (req, res) => {
   ])
     .then(result => {
       if (result.length === 0) {
-        return res.status(404).send('No matching posts found');
+        res.render("search404");
       }
 
       //const posts = result.flatMap(user => user.posts);
