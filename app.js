@@ -332,16 +332,19 @@ app.get('/search', (req, res) => {
     return res.status(400).send('Search term is required');
   }
 
-   Farmer.find({
-    $or: [
-      { title: { $regex: searchTerm, $options: 'i' } }, // Search in title using regular expression
-      { 'products': { $elemMatch: { farmername: { $regex: searchTerm, $options: 'i' } } } }, // Search in content.text using regular expression
-      { 'products': { $elemMatch: { name: { $regex: searchTerm, $options: 'i' } } } }// Search in content.tags using regular expression
-    // Search in content.author using regular expression
-    ]
-  })
-    .then(posts => {
-      res.render("home",{images:posts});
+  Farmer.aggregate([
+    { $unwind: '$products' },
+    { $match: { 'products.name': { $regex: searchTerm, $options: 'i' } } },
+    { $group: { _id: '$_id', products: { $push: '$products' } } }
+  ])
+    .then(result => {
+      if (result.length === 0) {
+        return res.status(404).send('No matching posts found');
+      }
+
+      //const posts = result.flatMap(user => user.posts);
+     // res.json(posts);
+    res.render("home",{images:result});
     })
     .catch(err => {
       console.error('Failed to perform search:', err);
