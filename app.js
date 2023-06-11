@@ -332,11 +332,12 @@ app.get('/search', (req, res) => {
     return res.status(400).send('Search term is required');
   }
 
-  Farmer.find({
+   Farmer.find({
     $or: [
-      { username: { $regex: searchTerm, $options: 'i' } }, // Search in title using regular expression
-      { 'products.farmername': { $regex: searchTerm, $options: 'i' } }, // Search in content.text using regular expression
-      { 'products.name': { $regex: searchTerm, $options: 'i' } } // Search in content.author using regular expression
+      { title: { $regex: searchTerm, $options: 'i' } }, // Search in title using regular expression
+      { 'products': { $elemMatch: { farmername: { $regex: searchTerm, $options: 'i' } } } }, // Search in content.text using regular expression
+      { 'products': { $elemMatch: { name: { $regex: searchTerm, $options: 'i' } } } }// Search in content.tags using regular expression
+    // Search in content.author using regular expression
     ]
   })
     .then(posts => {
