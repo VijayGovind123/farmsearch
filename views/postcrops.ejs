@@ -15,6 +15,10 @@
 
              </div>
              <div class="details">
+             
+             <i style="float:right; cursor:pointer" class="material-icons" onclick="navigator.clipboard.writeText('https://farmconnects.onrender.com/products/<%=i%>/product/<%=j%>').then(() => { swal('Link Copied', 'Link copied to clipboard!', 'success'); }).catch((error) => { console.error('Error copying link to clipboard:', error); })">content_copy</i>
+
+
 
                <b>Farmer Name</b>
                <h2><%=images[i].products[j].farmername%></h2>
@@ -33,8 +37,7 @@
                <b>Contact</b>
                <h2><%=images[i].products[j].mobileNum%></h2>
                <a class="btn btn-danger" href="/delete/<%=i%>/<%=j%>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                 <button style="float:right;" class="btn btn-success" onclick="navigator.clipboard.writeText('https://farmconnects.onrender.com/products/<%=i%>/product/<%=j%>').then(() => { swal('Link Copied', 'Link copied to clipboard!', 'success'); }).catch((error) => { console.error('Error copying link to clipboard:', error); })">Copy Link</button>
-
+                
 
 
              </div>
