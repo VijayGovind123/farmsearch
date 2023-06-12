@@ -40,9 +40,7 @@
                
                <b>Contact</b>
                <h2><%=images[i].products[j].mobileNum%></h2>
-               <button class="d-flex align-items-center btn btn-outline-dark" onclick="location.href='/products/<%=i%>/product/<%=j%>'">Order Now&ensp;<span class="material-icons">
-arrow_forward
-</span></button>
+               <button class="btn btn-outline-dark" onclick="location.href='/products/<%=i%>/product/<%=j%>'">Order Now</button>
             
                <button style="float:right;" class="btn btn-success" onclick="navigator.clipboard.writeText('https://farmconnects.onrender.com/products/<%=i%>/product/<%=j%>').then(() => { swal('Link Copied', 'Link copied to clipboard!', 'success'); }).catch((error) => { console.error('Error copying link to clipboard:', error); })">Copy Link</button>
 
