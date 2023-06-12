@@ -181,6 +181,17 @@ app.get("/postcrops", function(req, res){
       res.redirect("/login");
     }
 });
+
+
+app.get("/newpost",function(req,res){
+  if(req.isAuthenticated()){
+    res.render("newpost");
+  }
+  else{
+    res.redirect("/login");
+  }
+});
+
 app.post("/postcrops", upload.single('myImage'),function(req, res){
    // const submittedSecret = req.body.secret;
   /*  const obj = {
